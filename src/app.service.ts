@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { loginFormDto } from './dto/loginFormDto';
 import { JwtService } from '@nestjs/jwt';
+import { phoneNumberDto } from './dto/phoneNumberDto';
 
 @Injectable()
 export class AppService {
@@ -16,7 +17,6 @@ export class AppService {
         const payload = { name:name};
          
          var token= await this.jwtService.signAsync(payload)
-         console.log(token)
          return {name:name,token:token}
       }
     } catch (error) {
@@ -24,4 +24,12 @@ export class AppService {
     }
   }
 
+  getUser(phoneNumber:phoneNumberDto){
+    try {
+  console.log(phoneNumber)
+    return {name:"liyan",address:"chattikal house"}
+    } catch (error) {
+      
+    }
+  }
 }

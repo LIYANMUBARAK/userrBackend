@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { AppService } from './app.service';
 import { loginFormDto } from './dto/loginFormDto';
 
@@ -11,5 +11,10 @@ export class AppController {
     return this.appService.loginUser(loginForm)
   }
 
+  @Get('getUser/:phonenumber')
+  getUser(@Param('phoneNumber') phoneNumber: any) {
+
+    return this.appService.getUser(phoneNumber)
+  }
   
 }
